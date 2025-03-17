@@ -33,7 +33,7 @@ const Header = () => {
                   <span className="text-white font-bold text-lg">D</span>
                 </div>
                 <span className="text-xl font-medium text-brand-darkblue group-hover:text-brand-blue transition-colors">
-                  Digital Lab
+                  Digital Lab News
                 </span>
               </div>
             </Link>
@@ -72,7 +72,7 @@ const Header = () => {
               </DialogTrigger>
               <DialogContent className="sm:max-w-[425px] glass-panel">
                 <DialogHeader>
-                  <DialogTitle>Вход в Digital Lab</DialogTitle>
+                  <DialogTitle>Вход в Digital Lab News</DialogTitle>
                   <DialogDescription>
                     Введите ваши учетные данные для доступа к аккаунту
                   </DialogDescription>
@@ -101,7 +101,7 @@ const Header = () => {
                 <DialogHeader>
                   <DialogTitle>Создать аккаунт</DialogTitle>
                   <DialogDescription>
-                    Присоединяйтесь к Digital Lab, чтобы комментировать и сохранять статьи
+                    Присоединяйтесь к Digital Lab News, чтобы комментировать и сохранять статьи
                   </DialogDescription>
                 </DialogHeader>
                 <div className="grid gap-4 py-4">

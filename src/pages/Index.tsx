@@ -105,34 +105,6 @@ const Index = () => {
               </div>
             )}
           </section>
-          
-          {/* Newsletter */}
-          <section className="bg-gradient-to-r from-brand-blue/10 to-brand-indigo/10 rounded-2xl p-8 md:p-12 my-20">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-2xl md:text-3xl font-semibold mb-4">
-                Будьте в курсе новостей Digital Lab
-              </h2>
-              <p className="text-muted-foreground mb-8">
-                Получайте последние новости о технологиях и аналитику прямо на вашу электронную почту.
-              </p>
-              
-              <form className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
-                <input
-                  type="email"
-                  placeholder="Ваш email адрес"
-                  className="flex-grow h-11 px-4 rounded-lg border border-border focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition-all"
-                  required
-                />
-                <Button className="bg-brand-green hover:bg-brand-green/90 h-11">
-                  Подписаться
-                </Button>
-              </form>
-              
-              <p className="text-xs text-muted-foreground mt-4">
-                Подписываясь, вы соглашаетесь с нашей Политикой конфиденциальности и даете согласие на получение обновлений от Digital Lab.
-              </p>
-            </div>
-          </section>
         </div>
       </main>
       
