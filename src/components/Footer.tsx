@@ -14,64 +14,64 @@ const Footer = () => {
               <span className="text-xl font-medium">Digital Lab</span>
             </Link>
             <p className="mt-4 text-sm text-muted-foreground">
-              Exploring the future through minimalist, thoughtful journalism focused on technology and innovation.
+              Исследуя будущее через минималистичную, вдумчивую журналистику, сфокусированную на технологиях и инновациях.
             </p>
           </div>
           
           <div>
-            <h5 className="font-medium mb-4">Sections</h5>
+            <h5 className="font-medium mb-4">Разделы</h5>
             <ul className="space-y-2">
               <li>
                 <Link to="/" className="text-sm text-muted-foreground hover:text-brand-blue transition-colors">
-                  Home
+                  Главная
                 </Link>
               </li>
               <li>
                 <Link to="/tech" className="text-sm text-muted-foreground hover:text-brand-blue transition-colors">
-                  Tech
+                  Технологии
                 </Link>
               </li>
               <li>
                 <Link to="/science" className="text-sm text-muted-foreground hover:text-brand-blue transition-colors">
-                  Science
+                  Наука
                 </Link>
               </li>
               <li>
                 <Link to="/culture" className="text-sm text-muted-foreground hover:text-brand-blue transition-colors">
-                  Culture
+                  Культура
                 </Link>
               </li>
             </ul>
           </div>
           
           <div>
-            <h5 className="font-medium mb-4">Company</h5>
+            <h5 className="font-medium mb-4">Компания</h5>
             <ul className="space-y-2">
               <li>
                 <Link to="/about" className="text-sm text-muted-foreground hover:text-brand-blue transition-colors">
-                  About
+                  О нас
                 </Link>
               </li>
               <li>
                 <Link to="/careers" className="text-sm text-muted-foreground hover:text-brand-blue transition-colors">
-                  Careers
+                  Карьера
                 </Link>
               </li>
               <li>
                 <Link to="/privacy" className="text-sm text-muted-foreground hover:text-brand-blue transition-colors">
-                  Privacy
+                  Конфиденциальность
                 </Link>
               </li>
               <li>
                 <Link to="/terms" className="text-sm text-muted-foreground hover:text-brand-blue transition-colors">
-                  Terms
+                  Условия
                 </Link>
               </li>
             </ul>
           </div>
           
           <div>
-            <h5 className="font-medium mb-4">Connect</h5>
+            <h5 className="font-medium mb-4">Связаться</h5>
             <ul className="space-y-2">
               <li>
                 <a href="#" className="text-sm text-muted-foreground hover:text-brand-blue transition-colors">
@@ -99,18 +99,18 @@ const Footer = () => {
         
         <div className="border-t border-border/30 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Digital Lab. All rights reserved.
+            © {new Date().getFullYear()} Digital Lab. Все права защищены.
           </p>
           
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link to="/privacy" className="text-xs text-muted-foreground hover:text-brand-blue transition-colors">
-              Privacy Policy
+              Политика конфиденциальности
             </Link>
             <Link to="/terms" className="text-xs text-muted-foreground hover:text-brand-blue transition-colors">
-              Terms of Service
+              Условия использования
             </Link>
             <Link to="/cookies" className="text-xs text-muted-foreground hover:text-brand-blue transition-colors">
-              Cookie Policy
+              Политика cookies
             </Link>
           </div>
         </div>

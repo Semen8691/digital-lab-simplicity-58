@@ -38,7 +38,7 @@ const PostPage = () => {
             onClick={() => navigate(-1)}
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Back
+            Назад
           </Button>
           
           <article className="animate-fadeIn">
@@ -94,19 +94,19 @@ const PostPage = () => {
               <div className="flex items-center mr-6">
                 <Button variant="ghost" size="sm" className="rounded-full">
                   <ThumbsUp className="h-5 w-5 mr-2" />
-                  Like
+                  Нравится
                 </Button>
                 <span className="text-sm text-muted-foreground ml-1">{post.likes}</span>
               </div>
               
               <Button variant="ghost" size="sm" className="rounded-full">
                 <Bookmark className="h-5 w-5 mr-2" />
-                Save
+                Сохранить
               </Button>
               
               <Button variant="ghost" size="sm" className="rounded-full">
                 <Share2 className="h-5 w-5 mr-2" />
-                Share
+                Поделиться
               </Button>
             </div>
             

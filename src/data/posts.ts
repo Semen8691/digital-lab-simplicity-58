@@ -7,21 +7,21 @@ export const sampleComments: Comment[] = [
   {
     id: "comment1",
     author: {
-      name: "Alex Johnson",
+      name: "Алексей Иванов",
       avatar: "https://i.pravatar.cc/150?img=11",
     },
-    content: "This is a really insightful article. I particularly appreciated the analysis of how this technology could impact everyday users.",
-    date: "2 hours ago",
+    content: "Это действительно познавательная статья. Особенно понравился анализ того, как эта технология может повлиять на обычных пользователей.",
+    date: "2 часа назад",
     likes: 12,
     replies: [
       {
         id: "reply1",
         author: {
-          name: "Maya Rodriguez",
+          name: "Майя Родригес",
           avatar: "https://i.pravatar.cc/150?img=5",
         },
-        content: "I agree! The implications for privacy are especially interesting.",
-        date: "1 hour ago",
+        content: "Согласна! Особенно интересны последствия для приватности.",
+        date: "1 час назад",
         likes: 4,
       },
     ],
@@ -29,31 +29,31 @@ export const sampleComments: Comment[] = [
   {
     id: "comment2",
     author: {
-      name: "Sam Wilson",
+      name: "Сергей Волков",
       avatar: "https://i.pravatar.cc/150?img=3",
     },
-    content: "I wonder how this will affect the industry in the long term. Has anyone seen similar technology being implemented elsewhere?",
-    date: "5 hours ago",
+    content: "Интересно, как это повлияет на отрасль в долгосрочной перспективе. Кто-нибудь видел подобные технологии в других местах?",
+    date: "5 часов назад",
     likes: 7,
   },
   {
     id: "comment3",
     author: {
-      name: "Taylor Kim",
+      name: "Татьяна Ким",
       avatar: "https://i.pravatar.cc/150?img=8",
     },
-    content: "Great article, but I think there are some potential downsides that weren't fully addressed. Especially concerning the environmental impact.",
-    date: "1 day ago",
+    content: "Отличная статья, но я думаю, что есть некоторые потенциальные минусы, которые не были полностью раскрыты. Особенно касательно влияния на окружающую среду.",
+    date: "1 день назад",
     likes: 15,
     replies: [
       {
         id: "reply2",
         author: {
-          name: "Jordan Chen",
+          name: "Юрий Чен",
           avatar: "https://i.pravatar.cc/150?img=12",
         },
-        content: "Excellent point about the environmental concerns. I've been researching this area and found similar issues.",
-        date: "18 hours ago",
+        content: "Отличное замечание насчет экологических проблем. Я исследовал эту область и обнаружил схожие проблемы.",
+        date: "18 часов назад",
         likes: 8,
       },
     ],
@@ -64,91 +64,91 @@ export const sampleComments: Comment[] = [
 export const posts: PostCardProps[] = [
   {
     id: "post1",
-    title: "The Future of Artificial Intelligence in Everyday Life",
-    excerpt: "How machine learning algorithms are quietly transforming our daily routines and what it means for society.",
-    category: "Tech",
+    title: "Будущее искусственного интеллекта в повседневной жизни",
+    excerpt: "Как алгоритмы машинного обучения тихо трансформируют наши повседневные действия и что это значит для общества.",
+    category: "Технологии",
     image: "https://images.unsplash.com/photo-1677442135701-1451e36f4178?q=80&w=1932&auto=format&fit=crop",
     author: {
-      name: "Emma Clarke",
+      name: "Екатерина Кларк",
       avatar: "https://i.pravatar.cc/150?img=1",
     },
-    date: "Jun 15, 2023",
-    readTime: "6 min read",
+    date: "15 июня 2023",
+    readTime: "6 мин чтения",
     likes: 243,
     comments: 28,
   },
   {
     id: "post2",
-    title: "Sustainable Computing: Green Technologies Reshaping Data Centers",
-    excerpt: "Exploring how sustainable practices are being implemented in data centers around the world to reduce carbon footprints.",
-    category: "Science",
+    title: "Устойчивые вычисления: зеленые технологии меняют дата-центры",
+    excerpt: "Исследование того, как экологические практики внедряются в дата-центрах по всему миру для уменьшения углеродного следа.",
+    category: "Наука",
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop",
     author: {
-      name: "Daniel Park",
+      name: "Даниил Парк",
       avatar: "https://i.pravatar.cc/150?img=2",
     },
-    date: "Jun 12, 2023",
-    readTime: "8 min read",
+    date: "12 июня 2023",
+    readTime: "8 мин чтения",
     likes: 189,
     comments: 16,
   },
   {
     id: "post3",
-    title: "The Evolution of User Interface Design: From Command Line to Voice",
-    excerpt: "A journey through the history of UI design and how it continues to evolve with new technologies and user expectations.",
-    category: "Tech",
+    title: "Эволюция дизайна пользовательского интерфейса: от командной строки до голоса",
+    excerpt: "Путешествие по истории дизайна UI и как он продолжает развиваться с новыми технологиями и ожиданиями пользователей.",
+    category: "Технологии",
     image: "https://images.unsplash.com/photo-1551650992-ee4fd47df41f?q=80&w=1974&auto=format&fit=crop",
     author: {
-      name: "Sophia Martinez",
+      name: "София Мартинез",
       avatar: "https://i.pravatar.cc/150?img=4",
     },
-    date: "Jun 10, 2023",
-    readTime: "5 min read",
+    date: "10 июня 2023",
+    readTime: "5 мин чтения",
     likes: 165,
     comments: 12,
   },
   {
     id: "post4",
-    title: "Quantum Computing: Breaking Down Complex Problems",
-    excerpt: "How quantum computing is solving previously impossible computational challenges and its implications for various industries.",
-    category: "Science",
+    title: "Квантовые вычисления: решение сложных задач",
+    excerpt: "Как квантовые вычисления решают ранее невозможные вычислительные задачи и их последствия для различных отраслей.",
+    category: "Наука",
     image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2070&auto=format&fit=crop",
     author: {
-      name: "Michael Johnson",
+      name: "Михаил Иванов",
       avatar: "https://i.pravatar.cc/150?img=6",
     },
-    date: "Jun 8, 2023",
-    readTime: "7 min read",
+    date: "8 июня 2023",
+    readTime: "7 мин чтения",
     likes: 210,
     comments: 22,
   },
   {
     id: "post5",
-    title: "Digital Privacy in the Age of Social Media",
-    excerpt: "Understanding the complex balance between connectivity and privacy in our increasingly digital world.",
-    category: "Culture",
+    title: "Цифровая приватность в эпоху социальных сетей",
+    excerpt: "Понимание сложного баланса между связью и приватностью в нашем все более цифровом мире.",
+    category: "Культура",
     image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1968&auto=format&fit=crop",
     author: {
-      name: "Olivia Williams",
+      name: "Ольга Вильямс",
       avatar: "https://i.pravatar.cc/150?img=7",
     },
-    date: "Jun 6, 2023",
-    readTime: "5 min read",
+    date: "6 июня 2023",
+    readTime: "5 мин чтения",
     likes: 178,
     comments: 19,
   },
   {
     id: "post6",
-    title: "The Rise of Blockchain Technology Beyond Cryptocurrency",
-    excerpt: "Exploring how blockchain is being applied to solve problems in supply chain, healthcare, and other industries.",
-    category: "Tech",
+    title: "Рост технологии блокчейн за пределами криптовалюты",
+    excerpt: "Исследование того, как блокчейн применяется для решения проблем в цепочках поставок, здравоохранении и других отраслях.",
+    category: "Технологии",
     image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2032&auto=format&fit=crop",
     author: {
-      name: "William Chen",
+      name: "Владимир Чен",
       avatar: "https://i.pravatar.cc/150?img=9",
     },
-    date: "Jun 4, 2023",
-    readTime: "6 min read",
+    date: "4 июня 2023",
+    readTime: "6 мин чтения",
     likes: 154,
     comments: 14,
   },
@@ -163,38 +163,38 @@ export const getPostById = (id: string) => {
   return {
     ...post,
     content: `
-      <p class="mb-4">Technology continues to evolve at an unprecedented pace, transforming how we live, work, and interact with the world around us. From artificial intelligence and blockchain to quantum computing and beyond, the digital landscape is constantly shifting, bringing both opportunities and challenges.</p>
+      <p class="mb-4">Технологии продолжают развиваться с беспрецедентной скоростью, меняя то, как мы живем, работаем и взаимодействуем с окружающим миром. От искусственного интеллекта и блокчейна до квантовых вычислений и не только, цифровой ландшафт постоянно меняется, принося как возможности, так и вызовы.</p>
       
-      <p class="mb-4">In recent years, we've witnessed remarkable advancements in machine learning algorithms, natural language processing, and computer vision. These technologies are no longer confined to research labs or specialized applications; they're becoming increasingly integrated into our everyday lives, often in ways that are subtle yet profoundly impactful.</p>
+      <p class="mb-4">В последние годы мы стали свидетелями замечательных достижений в алгоритмах машинного обучения, обработке естественного языка и компьютерном зрении. Эти технологии больше не ограничиваются исследовательскими лабораториями или специализированными приложениями; они все больше интегрируются в нашу повседневную жизнь, часто способами, которые являются тонкими, но глубоко влияющими.</p>
       
-      <h2 class="text-2xl font-semibold mt-8 mb-4">The Quiet Revolution</h2>
+      <h2 class="text-2xl font-semibold mt-8 mb-4">Тихая революция</h2>
       
-      <p class="mb-4">Consider the devices and applications you interact with daily. Your smartphone suggests routes based on current traffic conditions, streaming services recommend content tailored to your preferences, and voice assistants respond to increasingly complex commands. Behind these conveniences are sophisticated algorithms constantly learning and adapting to provide more personalized experiences.</p>
+      <p class="mb-4">Рассмотрим устройства и приложения, с которыми вы взаимодействуете ежедневно. Ваш смартфон предлагает маршруты на основе текущих дорожных условий, стриминговые сервисы рекомендуют контент, адаптированный под ваши предпочтения, а голосовые помощники отвечают на все более сложные команды. За этими удобствами стоят сложные алгоритмы, которые постоянно учатся и адаптируются, чтобы обеспечить более персонализированный опыт.</p>
       
-      <p class="mb-4">This quiet revolution extends beyond consumer applications. In healthcare, AI systems are helping diagnose diseases from medical images with remarkable accuracy. In agriculture, data-driven approaches are optimizing crop yields while minimizing environmental impact. In manufacturing, predictive maintenance is reducing downtime and extending equipment lifespan.</p>
+      <p class="mb-4">Эта тихая революция выходит за рамки потребительских приложений. В здравоохранении системы ИИ помогают диагностировать заболевания по медицинским изображениям с замечательной точностью. В сельском хозяйстве подходы, основанные на данных, оптимизируют урожайность при минимальном воздействии на окружающую среду. В производстве прогнозное обслуживание сокращает время простоя и продлевает срок службы оборудования.</p>
       
       <figure class="my-8">
-        <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2020&auto=format&fit=crop" alt="Futuristic technology concept" class="rounded-lg w-full" />
-        <figcaption class="text-sm text-muted-foreground mt-2 text-center">The boundaries between digital and physical worlds continue to blur as technology advances.</figcaption>
+        <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2020&auto=format&fit=crop" alt="Концепция футуристической технологии" class="rounded-lg w-full" />
+        <figcaption class="text-sm text-muted-foreground mt-2 text-center">Границы между цифровым и физическим мирами продолжают размываться по мере развития технологий.</figcaption>
       </figure>
       
-      <h2 class="text-2xl font-semibold mt-8 mb-4">Ethical Considerations</h2>
+      <h2 class="text-2xl font-semibold mt-8 mb-4">Этические соображения</h2>
       
-      <p class="mb-4">As these technologies become more pervasive, important ethical questions arise. Who owns the data collected about us? How can we ensure algorithms don't perpetuate or amplify existing biases? What happens to privacy in a world of ubiquitous sensors and always-on devices?</p>
+      <p class="mb-4">По мере того, как эти технологии становятся все более распространенными, возникают важные этические вопросы. Кому принадлежат собираемые о нас данные? Как мы можем убедиться, что алгоритмы не увековечивают или не усиливают существующие предубеждения? Что происходит с конфиденциальностью в мире вездесущих сенсоров и всегда включенных устройств?</p>
       
-      <p class="mb-4">These questions don't have easy answers, but they're essential to address as we navigate the rapidly evolving technological landscape. The decisions we make today about how we develop, deploy, and regulate these technologies will shape society for generations to come.</p>
+      <p class="mb-4">На эти вопросы нет простых ответов, но их необходимо задавать, поскольку мы ориентируемся в быстро развивающемся технологическом ландшафте. Решения, которые мы принимаем сегодня о том, как разрабатывать, внедрять и регулировать эти технологии, будут формировать общество для будущих поколений.</p>
       
       <blockquote class="border-l-4 border-brand-blue pl-4 italic my-6">
-        "The most profound technologies are those that disappear. They weave themselves into the fabric of everyday life until they are indistinguishable from it." — Mark Weiser
+        "Самые глубокие технологии - это те, которые исчезают. Они вплетаются в ткань повседневной жизни, пока не станут неотличимы от нее." — Марк Вейзер
       </blockquote>
       
-      <h2 class="text-2xl font-semibold mt-8 mb-4">Looking Ahead</h2>
+      <h2 class="text-2xl font-semibold mt-8 mb-4">Взгляд в будущее</h2>
       
-      <p class="mb-4">The pace of technological change shows no signs of slowing. Emerging fields like quantum computing promise to solve complex problems beyond the capabilities of classical computers. Advances in biotechnology are blurring the lines between the digital and biological worlds. Extended reality technologies are creating new ways to experience and interact with information.</p>
+      <p class="mb-4">Темпы технологических изменений не показывают признаков замедления. Возникающие области, такие как квантовые вычисления, обещают решать сложные проблемы, находящиеся за пределами возможностей классических компьютеров. Достижения в биотехнологии размывают границы между цифровыми и биологическими мирами. Технологии расширенной реальности создают новые способы для восприятия и взаимодействия с информацией.</p>
       
-      <p class="mb-4">As we look to the future, one thing is clear: adaptability will be essential. The ability to learn continuously, think critically, and engage thoughtfully with new technologies will be crucial skills for navigating the world of tomorrow.</p>
+      <p class="mb-4">Глядя в будущее, ясно одно: адаптивность будет иметь важное значение. Способность постоянно учиться, критически мыслить и вдумчиво взаимодействовать с новыми технологиями будет решающим навыком для ориентации в мире завтрашнего дня.</p>
       
-      <p class="mb-4">By fostering digital literacy and maintaining a focus on human needs and values, we can ensure that technology serves as a force for positive change in our lives and communities.</p>
+      <p class="mb-4">Поощряя цифровую грамотность и сохраняя фокус на человеческих потребностях и ценностях, мы можем обеспечить, чтобы технологии служили силой позитивных изменений в нашей жизни и сообществах.</p>
     `,
   };
 };

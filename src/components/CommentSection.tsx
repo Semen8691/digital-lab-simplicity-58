@@ -73,19 +73,19 @@ const CommentItem = ({ comment }: { comment: Comment }) => {
               onClick={() => setIsReplying(!isReplying)}
             >
               <Reply className="h-3.5 w-3.5 mr-1.5" />
-              Reply
+              Ответить
             </button>
             
             <button className="flex items-center text-xs text-muted-foreground hover:text-brand-blue transition-colors">
               <Flag className="h-3.5 w-3.5 mr-1.5" />
-              Report
+              Пожаловаться
             </button>
           </div>
           
           {isReplying && (
             <div className="mt-3">
               <Textarea
-                placeholder="Write a reply..."
+                placeholder="Напишите ответ..."
                 className="resize-none text-sm"
                 value={replyText}
                 onChange={(e) => setReplyText(e.target.value)}
@@ -96,13 +96,13 @@ const CommentItem = ({ comment }: { comment: Comment }) => {
                   size="sm" 
                   onClick={() => setIsReplying(false)}
                 >
-                  Cancel
+                  Отмена
                 </Button>
                 <Button 
                   size="sm" 
                   className="bg-brand-blue hover:bg-brand-darkblue"
                 >
-                  Reply
+                  Ответить
                 </Button>
               </div>
             </div>
@@ -126,11 +126,11 @@ const CommentSection = ({ postId, comments }: CommentSectionProps) => {
 
   return (
     <div className="py-6" id="comments">
-      <h3 className="text-xl font-semibold mb-6">Comments ({comments.length})</h3>
+      <h3 className="text-xl font-semibold mb-6">Комментарии ({comments.length})</h3>
       
       <div className="mb-8">
         <Textarea
-          placeholder="Share your thoughts..."
+          placeholder="Поделитесь своим мнением..."
           className="resize-none"
           value={commentText}
           onChange={(e) => setCommentText(e.target.value)}
@@ -140,7 +140,7 @@ const CommentSection = ({ postId, comments }: CommentSectionProps) => {
             className="bg-brand-blue hover:bg-brand-darkblue"
             disabled={!commentText.trim()}
           >
-            Post Comment
+            Отправить комментарий
           </Button>
         </div>
       </div>

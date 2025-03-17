@@ -40,16 +40,16 @@ const Header = () => {
             
             <nav className="hidden md:flex space-x-8">
               <Link to="/" className="text-brand-darkblue hover:text-brand-blue transition-colors">
-                Home
+                Главная
               </Link>
               <Link to="/tech" className="text-brand-darkblue hover:text-brand-blue transition-colors">
-                Tech
+                Технологии
               </Link>
               <Link to="/science" className="text-brand-darkblue hover:text-brand-blue transition-colors">
-                Science
+                Наука
               </Link>
               <Link to="/culture" className="text-brand-darkblue hover:text-brand-blue transition-colors">
-                Culture
+                Культура
               </Link>
             </nav>
           </div>
@@ -58,7 +58,7 @@ const Header = () => {
             <div className="relative hidden md:block">
               <Input
                 type="search"
-                placeholder="Search..."
+                placeholder="Поиск..."
                 className="pl-9 h-9 w-[180px] focus:w-[220px] transition-all duration-300 bg-muted/50 border-none"
               />
               <Search className="absolute left-2.5 top-2 h-4.5 w-4.5 text-muted-foreground" />
@@ -67,14 +67,14 @@ const Header = () => {
             <Dialog>
               <DialogTrigger asChild>
                 <Button variant="outline" size="sm" className="border-brand-blue text-brand-blue hover:bg-brand-blue/10">
-                  Login
+                  Войти
                 </Button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-[425px] glass-panel">
                 <DialogHeader>
-                  <DialogTitle>Login to Digital Lab</DialogTitle>
+                  <DialogTitle>Вход в Digital Lab</DialogTitle>
                   <DialogDescription>
-                    Enter your credentials to access your account
+                    Введите ваши учетные данные для доступа к аккаунту
                   </DialogDescription>
                 </DialogHeader>
                 <div className="grid gap-4 py-4">
@@ -83,10 +83,10 @@ const Header = () => {
                     <Input id="email" type="email" placeholder="hello@example.com" />
                   </div>
                   <div className="grid gap-2">
-                    <Label htmlFor="password">Password</Label>
+                    <Label htmlFor="password">Пароль</Label>
                     <Input id="password" type="password" />
                   </div>
-                  <Button className="mt-2 bg-brand-blue hover:bg-brand-darkblue">Sign In</Button>
+                  <Button className="mt-2 bg-brand-blue hover:bg-brand-darkblue">Войти</Button>
                 </div>
               </DialogContent>
             </Dialog>
@@ -94,34 +94,34 @@ const Header = () => {
             <Dialog>
               <DialogTrigger asChild>
                 <Button size="sm" className="bg-brand-blue hover:bg-brand-darkblue text-white">
-                  Register
+                  Регистрация
                 </Button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-[425px] glass-panel">
                 <DialogHeader>
-                  <DialogTitle>Create an account</DialogTitle>
+                  <DialogTitle>Создать аккаунт</DialogTitle>
                   <DialogDescription>
-                    Join Digital Lab to comment and save articles
+                    Присоединяйтесь к Digital Lab, чтобы комментировать и сохранять статьи
                   </DialogDescription>
                 </DialogHeader>
                 <div className="grid gap-4 py-4">
                   <div className="grid gap-2">
-                    <Label htmlFor="name">Name</Label>
-                    <Input id="name" placeholder="John Doe" />
+                    <Label htmlFor="name">Имя</Label>
+                    <Input id="name" placeholder="Иван Иванов" />
                   </div>
                   <div className="grid gap-2">
                     <Label htmlFor="register-email">Email</Label>
                     <Input id="register-email" type="email" placeholder="hello@example.com" />
                   </div>
                   <div className="grid gap-2">
-                    <Label htmlFor="register-password">Password</Label>
+                    <Label htmlFor="register-password">Пароль</Label>
                     <Input id="register-password" type="password" />
                   </div>
                   <div className="grid gap-2">
-                    <Label htmlFor="confirm-password">Confirm Password</Label>
+                    <Label htmlFor="confirm-password">Подтвердите пароль</Label>
                     <Input id="confirm-password" type="password" />
                   </div>
-                  <Button className="mt-2 bg-brand-green hover:bg-brand-green/90">Create Account</Button>
+                  <Button className="mt-2 bg-brand-green hover:bg-brand-green/90">Создать аккаунт</Button>
                 </div>
               </DialogContent>
             </Dialog>
