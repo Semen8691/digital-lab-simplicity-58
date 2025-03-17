@@ -67,7 +67,7 @@ export const posts: PostCardProps[] = [
     title: "Будущее искусственного интеллекта в повседневной жизни",
     excerpt: "Как алгоритмы машинного обучения тихо трансформируют наши повседневные действия и что это значит для общества.",
     category: "Технологии",
-    image: "https://images.unsplash.com/photo-1677442135701-1451e36f4178?q=80&w=1932&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1932&auto=format&fit=crop",
     author: {
       name: "Екатерина Кларк",
       avatar: "https://i.pravatar.cc/150?img=1",
