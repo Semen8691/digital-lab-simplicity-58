@@ -3,8 +3,8 @@ import { useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
 import { ThumbsUp, Reply } from "lucide-react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 export interface Comment {
   id: string;
@@ -28,6 +28,7 @@ const CommentItem = ({ comment }: { comment: Comment }) => {
   const [likeCount, setLikeCount] = useState(comment.likes);
   const [isReplying, setIsReplying] = useState(false);
   const [replyText, setReplyText] = useState("");
+  const [displayName, setDisplayName] = useState("");
   const [replies, setReplies] = useState(comment.replies || []);
 
   const handleLike = () => {
@@ -39,16 +40,13 @@ const CommentItem = ({ comment }: { comment: Comment }) => {
     setIsLiked(!isLiked);
   };
 
-  // Check if user is authenticated
-  const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
-
   const handleSubmitReply = () => {
-    if (!replyText.trim()) return;
+    if (!replyText.trim() || !displayName.trim()) return;
     
     const newReply = {
       id: `reply-${Date.now()}`,
       author: {
-        name: "Пользователь",
+        name: displayName,
         avatar: "/placeholder.svg",
       },
       content: replyText,
@@ -58,6 +56,7 @@ const CommentItem = ({ comment }: { comment: Comment }) => {
     
     setReplies([...replies, newReply]);
     setReplyText("");
+    setDisplayName("");
     setIsReplying(false);
   };
 
@@ -92,19 +91,23 @@ const CommentItem = ({ comment }: { comment: Comment }) => {
               {likeCount}
             </button>
             
-            {isAuthenticated && (
-              <button 
-                className="flex items-center text-xs text-muted-foreground hover:text-brand-blue transition-colors"
-                onClick={() => setIsReplying(!isReplying)}
-              >
-                <Reply className="h-3.5 w-3.5 mr-1.5" />
-                Ответить
-              </button>
-            )}
+            <button 
+              className="flex items-center text-xs text-muted-foreground hover:text-brand-blue transition-colors"
+              onClick={() => setIsReplying(!isReplying)}
+            >
+              <Reply className="h-3.5 w-3.5 mr-1.5" />
+              Ответить
+            </button>
           </div>
           
           {isReplying && (
             <div className="mt-3">
+              <Input
+                placeholder="Ваше имя"
+                className="mb-2 text-sm"
+                value={displayName}
+                onChange={(e) => setDisplayName(e.target.value)}
+              />
               <Textarea
                 placeholder="Напишите ответ..."
                 className="resize-none text-sm"
@@ -123,6 +126,7 @@ const CommentItem = ({ comment }: { comment: Comment }) => {
                   size="sm" 
                   className="bg-brand-blue hover:bg-brand-darkblue"
                   onClick={handleSubmitReply}
+                  disabled={!replyText.trim() || !displayName.trim()}
                 >
                   Ответить
                 </Button>
@@ -145,24 +149,16 @@ const CommentItem = ({ comment }: { comment: Comment }) => {
 
 const CommentSection = ({ postId, comments }: CommentSectionProps) => {
   const [commentText, setCommentText] = useState("");
+  const [displayName, setDisplayName] = useState("");
   const [allComments, setAllComments] = useState(comments);
-  const [loginDialogOpen, setLoginDialogOpen] = useState(false);
   
-  // Check if user is authenticated
-  const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
-
   const handleSubmitComment = () => {
-    if (!commentText.trim()) return;
-    
-    if (!isAuthenticated) {
-      setLoginDialogOpen(true);
-      return;
-    }
+    if (!commentText.trim() || !displayName.trim()) return;
     
     const newComment = {
       id: `comment-${Date.now()}`,
       author: {
-        name: "Пользователь",
+        name: displayName,
         avatar: "/placeholder.svg",
       },
       content: commentText,
@@ -172,6 +168,7 @@ const CommentSection = ({ postId, comments }: CommentSectionProps) => {
     
     setAllComments([...allComments, newComment]);
     setCommentText("");
+    setDisplayName("");
   };
 
   return (
@@ -179,17 +176,22 @@ const CommentSection = ({ postId, comments }: CommentSectionProps) => {
       <h3 className="text-xl font-semibold mb-6">Комментарии ({allComments.length})</h3>
       
       <div className="mb-8">
+        <Input
+          placeholder="Ваше имя"
+          className="mb-2"
+          value={displayName}
+          onChange={(e) => setDisplayName(e.target.value)}
+        />
         <Textarea
-          placeholder={isAuthenticated ? "Поделитесь своим мнением..." : "Войдите, чтобы оставить комментарий"}
+          placeholder="Поделитесь своим мнением..."
           className="resize-none"
           value={commentText}
           onChange={(e) => setCommentText(e.target.value)}
-          disabled={!isAuthenticated}
         />
         <div className="flex justify-end mt-2">
           <Button 
             className="bg-brand-blue hover:bg-brand-darkblue"
-            disabled={!commentText.trim()}
+            disabled={!commentText.trim() || !displayName.trim()}
             onClick={handleSubmitComment}
           >
             Отправить комментарий
@@ -202,22 +204,6 @@ const CommentSection = ({ postId, comments }: CommentSectionProps) => {
           <CommentItem key={comment.id} comment={comment} />
         ))}
       </div>
-      
-      <Dialog open={loginDialogOpen} onOpenChange={setLoginDialogOpen}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Необходима авторизация</DialogTitle>
-            <DialogDescription>
-              Чтобы оставлять комментарии, пожалуйста, войдите или зарегистрируйтесь.
-            </DialogDescription>
-          </DialogHeader>
-          <div className="flex justify-end space-x-2">
-            <Button variant="outline" onClick={() => setLoginDialogOpen(false)}>
-              Закрыть
-            </Button>
-          </div>
-        </DialogContent>
-      </Dialog>
     </div>
   );
 };

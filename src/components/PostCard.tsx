@@ -20,7 +20,6 @@ export interface PostCardProps {
   readTime: string;
   likes: number;
   comments: number;
-  saved?: boolean;
 }
 
 const PostCard = ({
@@ -34,7 +33,6 @@ const PostCard = ({
   readTime,
   likes,
   comments,
-  saved = false,
 }: PostCardProps) => {
   const [isLiked, setIsLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(likes);
