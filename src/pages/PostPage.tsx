@@ -7,7 +7,7 @@ import CommentSection from "@/components/CommentSection";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { getPostById, sampleComments } from "@/data/posts";
-import { ArrowLeft, Bookmark, Share2, ThumbsUp } from "lucide-react";
+import { ArrowLeft, ThumbsUp } from "lucide-react";
 
 const PostPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -67,12 +67,6 @@ const PostPage = () => {
                   <Button variant="ghost" size="icon" className="rounded-full">
                     <ThumbsUp className="h-5 w-5" />
                   </Button>
-                  <Button variant="ghost" size="icon" className="rounded-full">
-                    <Bookmark className="h-5 w-5" />
-                  </Button>
-                  <Button variant="ghost" size="icon" className="rounded-full">
-                    <Share2 className="h-5 w-5" />
-                  </Button>
                 </div>
               </div>
             </div>
@@ -98,16 +92,6 @@ const PostPage = () => {
                 </Button>
                 <span className="text-sm text-muted-foreground ml-1">{post.likes}</span>
               </div>
-              
-              <Button variant="ghost" size="sm" className="rounded-full">
-                <Bookmark className="h-5 w-5 mr-2" />
-                Сохранить
-              </Button>
-              
-              <Button variant="ghost" size="sm" className="rounded-full">
-                <Share2 className="h-5 w-5 mr-2" />
-                Поделиться
-              </Button>
             </div>
             
             <CommentSection postId={post.id} comments={sampleComments} />

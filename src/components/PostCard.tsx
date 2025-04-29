@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import { Bookmark, MessageSquare, Share2, ThumbsUp } from "lucide-react";
+import { MessageSquare, ThumbsUp } from "lucide-react";
 
 export interface PostCardProps {
   id: string;
@@ -37,7 +37,6 @@ const PostCard = ({
   saved = false,
 }: PostCardProps) => {
   const [isLiked, setIsLiked] = useState(false);
-  const [isSaved, setIsSaved] = useState(saved);
   const [likeCount, setLikeCount] = useState(likes);
 
   const handleLike = () => {
@@ -47,10 +46,6 @@ const PostCard = ({
       setLikeCount(likeCount + 1);
     }
     setIsLiked(!isLiked);
-  };
-
-  const handleSave = () => {
-    setIsSaved(!isSaved);
   };
 
   return (
@@ -111,16 +106,6 @@ const PostCard = ({
             </Button>
           </Link>
           <span className="text-xs text-muted-foreground pr-1">{comments}</span>
-          
-          <Button variant="ghost" size="icon" className="h-8 w-8" onClick={handleSave}>
-            <Bookmark 
-              className={`h-4 w-4 ${isSaved ? 'fill-brand-indigo text-brand-indigo' : 'text-muted-foreground'}`} 
-            />
-          </Button>
-          
-          <Button variant="ghost" size="icon" className="h-8 w-8">
-            <Share2 className="h-4 w-4 text-muted-foreground" />
-          </Button>
         </div>
       </CardFooter>
     </Card>
