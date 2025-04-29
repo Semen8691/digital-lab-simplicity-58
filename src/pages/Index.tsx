@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PostCard from "@/components/PostCard";
@@ -9,13 +9,24 @@ import { ChevronDown } from "lucide-react";
 
 const Index = () => {
   const [visiblePosts, setVisiblePosts] = useState(3);
-  
-  const loadMorePosts = () => {
-    setVisiblePosts(prev => Math.min(prev + 3, posts.length));
-  };
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   
   const featuredPost = posts[0];
   const remainingPosts = posts.slice(1);
+  
+  // Filter posts by selected category or show all if no category is selected
+  const filteredPosts = selectedCategory 
+    ? remainingPosts.filter(post => post.category === selectedCategory)
+    : remainingPosts;
+  
+  // Reset visible posts count when category changes
+  useEffect(() => {
+    setVisiblePosts(3);
+  }, [selectedCategory]);
+  
+  const loadMorePosts = () => {
+    setVisiblePosts(prev => Math.min(prev + 3, filteredPosts.length));
+  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -71,28 +82,52 @@ const Index = () => {
               <h2 className="text-2xl md:text-3xl font-semibold">Последние статьи</h2>
               
               <div className="flex space-x-4">
-                <Button variant="ghost" className="text-brand-blue hover:text-brand-darkblue hover:bg-brand-blue/5">
+                <Button 
+                  variant="ghost" 
+                  className={selectedCategory === null 
+                    ? "text-brand-blue hover:text-brand-darkblue hover:bg-brand-blue/5" 
+                    : "text-foreground/70 hover:text-brand-blue hover:bg-brand-blue/5"}
+                  onClick={() => setSelectedCategory(null)}
+                >
                   Все
                 </Button>
-                <Button variant="ghost" className="text-foreground/70 hover:text-brand-blue hover:bg-brand-blue/5">
+                <Button 
+                  variant="ghost" 
+                  className={selectedCategory === "Технологии" 
+                    ? "text-brand-blue hover:text-brand-darkblue hover:bg-brand-blue/5" 
+                    : "text-foreground/70 hover:text-brand-blue hover:bg-brand-blue/5"}
+                  onClick={() => setSelectedCategory("Технологии")}
+                >
                   Технологии
                 </Button>
-                <Button variant="ghost" className="text-foreground/70 hover:text-brand-blue hover:bg-brand-blue/5">
+                <Button 
+                  variant="ghost" 
+                  className={selectedCategory === "Наука" 
+                    ? "text-brand-blue hover:text-brand-darkblue hover:bg-brand-blue/5" 
+                    : "text-foreground/70 hover:text-brand-blue hover:bg-brand-blue/5"}
+                  onClick={() => setSelectedCategory("Наука")}
+                >
                   Наука
                 </Button>
-                <Button variant="ghost" className="text-foreground/70 hover:text-brand-blue hover:bg-brand-blue/5">
+                <Button 
+                  variant="ghost" 
+                  className={selectedCategory === "Культура" 
+                    ? "text-brand-blue hover:text-brand-darkblue hover:bg-brand-blue/5" 
+                    : "text-foreground/70 hover:text-brand-blue hover:bg-brand-blue/5"}
+                  onClick={() => setSelectedCategory("Культура")}
+                >
                   Культура
                 </Button>
               </div>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {remainingPosts.slice(0, visiblePosts).map((post) => (
+              {filteredPosts.slice(0, visiblePosts).map((post) => (
                 <PostCard key={post.id} {...post} />
               ))}
             </div>
             
-            {visiblePosts < remainingPosts.length && (
+            {visiblePosts < filteredPosts.length && (
               <div className="text-center mt-12">
                 <Button 
                   variant="outline" 
