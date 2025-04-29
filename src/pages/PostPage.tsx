@@ -1,6 +1,6 @@
 
 import { useParams, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CommentSection from "@/components/CommentSection";
@@ -14,6 +14,8 @@ const PostPage = () => {
   const navigate = useNavigate();
   
   const post = id ? getPostById(id) : null;
+  const [isLiked, setIsLiked] = useState(false);
+  const [likeCount, setLikeCount] = useState(post ? post.likes : 0);
   
   useEffect(() => {
     if (!post) {
@@ -23,6 +25,15 @@ const PostPage = () => {
     // Scroll to top when post loads
     window.scrollTo(0, 0);
   }, [post, navigate]);
+  
+  const handleLike = () => {
+    if (isLiked) {
+      setLikeCount(likeCount - 1);
+    } else {
+      setLikeCount(likeCount + 1);
+    }
+    setIsLiked(!isLiked);
+  };
   
   if (!post) return null;
 
@@ -64,8 +75,13 @@ const PostPage = () => {
                 </div>
                 
                 <div className="flex space-x-2">
-                  <Button variant="ghost" size="icon" className="rounded-full">
-                    <ThumbsUp className="h-5 w-5" />
+                  <Button 
+                    variant="ghost" 
+                    size="icon" 
+                    className="rounded-full" 
+                    onClick={handleLike}
+                  >
+                    <ThumbsUp className={`h-5 w-5 ${isLiked ? 'fill-brand-blue text-brand-blue' : ''}`} />
                   </Button>
                 </div>
               </div>
@@ -86,11 +102,16 @@ const PostPage = () => {
             
             <div className="flex items-center space-x-4 py-4 border-t border-b border-border/30 my-8">
               <div className="flex items-center mr-6">
-                <Button variant="ghost" size="sm" className="rounded-full">
-                  <ThumbsUp className="h-5 w-5 mr-2" />
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  className="rounded-full" 
+                  onClick={handleLike}
+                >
+                  <ThumbsUp className={`h-5 w-5 mr-2 ${isLiked ? 'fill-brand-blue text-brand-blue' : ''}`} />
                   Нравится
                 </Button>
-                <span className="text-sm text-muted-foreground ml-1">{post.likes}</span>
+                <span className="text-sm text-muted-foreground ml-1">{likeCount}</span>
               </div>
             </div>
             
