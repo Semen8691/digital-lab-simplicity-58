@@ -73,17 +73,6 @@ const PostPage = () => {
                     </p>
                   </div>
                 </div>
-                
-                <div className="flex space-x-2">
-                  <Button 
-                    variant="ghost" 
-                    size="icon" 
-                    className="rounded-full" 
-                    onClick={handleLike}
-                  >
-                    <ThumbsUp className={`h-5 w-5 ${isLiked ? 'fill-brand-blue text-brand-blue' : ''}`} />
-                  </Button>
-                </div>
               </div>
             </div>
             

@@ -26,9 +26,9 @@ const Header = () => {
     
     if (!searchQuery.trim()) return;
     
-    // Search for exact title match
+    // Search for partial title match instead of exact match
     const foundPost = posts.find(
-      post => post.title.toLowerCase() === searchQuery.toLowerCase()
+      post => post.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
     
     if (foundPost) {
