@@ -39,6 +39,13 @@ const Header = () => {
     }
   };
 
+  // Handler to filter out special characters
+  const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Allow only letters, numbers, and spaces
+    const filteredValue = e.target.value.replace(/[^\p{L}\p{N}\s]/gu, '');
+    setSearchQuery(filteredValue);
+  };
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? "bg-white/80 backdrop-blur-lg shadow-sm" : "bg-transparent"
@@ -80,7 +87,7 @@ const Header = () => {
                 placeholder="Поиск..."
                 className="pl-9 h-9 w-[180px] focus:w-[220px] transition-all duration-300 bg-muted/50 border-none"
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={handleSearchInputChange}
               />
               <button type="submit" className="absolute left-2.5 top-2 h-4.5 w-4.5 text-muted-foreground bg-transparent border-none p-0">
                 <Search className="h-4.5 w-4.5" />

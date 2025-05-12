@@ -49,6 +49,13 @@ const CommentItem = ({ comment }: { comment: Comment }) => {
     setIsLiked(!isLiked);
   };
 
+  // Filter special characters from name input
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Allow only letters, numbers, and spaces
+    const filteredValue = e.target.value.replace(/[^\p{L}\p{N}\s]/gu, '');
+    setDisplayName(filteredValue);
+  };
+
   const handleSubmitReply = () => {
     if (!replyText.trim() || !displayName.trim()) return;
     
@@ -115,7 +122,7 @@ const CommentItem = ({ comment }: { comment: Comment }) => {
                 placeholder="Ваше имя"
                 className="mb-2 text-sm"
                 value={displayName}
-                onChange={(e) => setDisplayName(e.target.value)}
+                onChange={handleNameChange}
               />
               <Textarea
                 placeholder="Напишите ответ..."
@@ -163,6 +170,13 @@ const CommentSection = ({ postId, comments }: CommentSectionProps) => {
   const [alertOpen, setAlertOpen] = useState(false);
   const [missingFields, setMissingFields] = useState<string[]>([]);
   
+  // Filter special characters from name input
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Allow only letters, numbers, and spaces
+    const filteredValue = e.target.value.replace(/[^\p{L}\p{N}\s]/gu, '');
+    setDisplayName(filteredValue);
+  };
+
   const handleSubmitComment = () => {
     const missing: string[] = [];
     
@@ -205,7 +219,7 @@ const CommentSection = ({ postId, comments }: CommentSectionProps) => {
           placeholder="Ваше имя"
           className="mb-2"
           value={displayName}
-          onChange={(e) => setDisplayName(e.target.value)}
+          onChange={handleNameChange}
         />
         <Textarea
           placeholder="Поделитесь своим мнением..."
