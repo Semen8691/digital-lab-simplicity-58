@@ -5,6 +5,15 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { ThumbsUp, Reply } from "lucide-react";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 
 export interface Comment {
   id: string;
@@ -151,9 +160,25 @@ const CommentSection = ({ postId, comments }: CommentSectionProps) => {
   const [commentText, setCommentText] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [allComments, setAllComments] = useState(comments);
+  const [alertOpen, setAlertOpen] = useState(false);
+  const [missingFields, setMissingFields] = useState<string[]>([]);
   
   const handleSubmitComment = () => {
-    if (!commentText.trim() || !displayName.trim()) return;
+    const missing: string[] = [];
+    
+    if (!displayName.trim()) {
+      missing.push("имя");
+    }
+    
+    if (!commentText.trim()) {
+      missing.push("комментарий");
+    }
+    
+    if (missing.length > 0) {
+      setMissingFields(missing);
+      setAlertOpen(true);
+      return;
+    }
     
     const newComment = {
       id: `comment-${Date.now()}`,
@@ -190,8 +215,7 @@ const CommentSection = ({ postId, comments }: CommentSectionProps) => {
         />
         <div className="flex justify-end mt-2">
           <Button 
-            className="bg-brand-blue hover:bg-brand-darkblue"
-            disabled={!commentText.trim() || !displayName.trim()}
+            className="bg-brand-blue hover:bg-brand-blue/80"
             onClick={handleSubmitComment}
           >
             Отправить комментарий
@@ -204,6 +228,20 @@ const CommentSection = ({ postId, comments }: CommentSectionProps) => {
           <CommentItem key={comment.id} comment={comment} />
         ))}
       </div>
+
+      <AlertDialog open={alertOpen} onOpenChange={setAlertOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Пожалуйста, заполните все поля</AlertDialogTitle>
+            <AlertDialogDescription>
+              Для отправки комментария необходимо заполнить следующие поля: {missingFields.join(", ")}.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogAction>Понятно</AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 };

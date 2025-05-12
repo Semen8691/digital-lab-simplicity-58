@@ -1,3 +1,4 @@
+
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Header from "@/components/Header";
@@ -25,7 +26,10 @@ const PostPage = () => {
     window.scrollTo(0, 0);
   }, [post, navigate]);
   
-  const handleLike = () => {
+  const handleLike = (e: React.MouseEvent) => {
+    // Prevent any default behavior
+    e.preventDefault();
+    
     if (isLiked) {
       setLikeCount(likeCount - 1);
     } else {

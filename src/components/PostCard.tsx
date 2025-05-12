@@ -37,7 +37,11 @@ const PostCard = ({
   const [isLiked, setIsLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(likes);
 
-  const handleLike = () => {
+  const handleLike = (e: React.MouseEvent) => {
+    // Stop propagation to prevent navigation
+    e.preventDefault();
+    e.stopPropagation();
+    
     if (isLiked) {
       setLikeCount(likeCount - 1);
     } else {
@@ -88,7 +92,8 @@ const PostCard = ({
         <div className="flex items-center space-x-1">
           <div className="flex items-center h-8 w-8 justify-center">
             <ThumbsUp 
-              className={`h-4 w-4 ${isLiked ? 'fill-brand-blue text-brand-blue' : 'text-muted-foreground'}`} 
+              className={`h-4 w-4 ${isLiked ? 'fill-brand-blue text-brand-blue' : 'text-muted-foreground'}`}
+              onClick={handleLike}
             />
           </div>
           <span className="text-xs text-muted-foreground pr-1">{likeCount}</span>
