@@ -1,4 +1,3 @@
-
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Header from "@/components/Header";
@@ -33,9 +32,6 @@ const PostPage = () => {
       setLikeCount(likeCount + 1);
     }
     setIsLiked(!isLiked);
-    
-    // Smooth scroll to the top after liking
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
   
   if (!post) return null;
@@ -47,11 +43,11 @@ const PostPage = () => {
       <main className="flex-grow pt-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Button
-            variant="ghost"
-            className="mb-8 text-brand-blue hover:bg-brand-blue/10"
+            variant="secondary"
+            className="mb-8 text-white bg-brand-blue hover:bg-brand-blue/80 font-medium px-6 py-2 text-base"
             onClick={() => navigate(-1)}
           >
-            <ArrowLeft className="mr-2 h-4 w-4" />
+            <ArrowLeft className="mr-2 h-5 w-5" />
             Назад
           </Button>
           

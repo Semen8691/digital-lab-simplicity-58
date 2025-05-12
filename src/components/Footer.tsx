@@ -7,12 +7,12 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="md:col-span-1">
-            <Link to="/" className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-brand-blue rounded-md flex items-center justify-center">
                 <span className="text-white font-bold text-lg">D</span>
               </div>
               <span className="text-xl font-medium">Digital Lab</span>
-            </Link>
+            </div>
             <p className="mt-4 text-sm text-muted-foreground">
               Исследуя будущее через минималистичную, вдумчивую журналистику, сфокусированную на технологиях и инновациях.
             </p>
