@@ -46,14 +46,25 @@ const PostPage = () => {
       
       <main className="flex-grow pt-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Button
-            variant="secondary"
-            className="mb-8 text-white bg-brand-blue hover:bg-brand-blue/80 font-medium px-6 py-2 text-base"
-            onClick={() => navigate(-1)}
-          >
-            <ArrowLeft className="mr-2 h-5 w-5" />
-            Назад
-          </Button>
+          <div className="flex justify-between items-center mb-8">
+            <Button
+              variant="secondary"
+              className="text-white bg-brand-blue hover:bg-brand-blue/80 font-medium px-6 py-2 text-base"
+              onClick={() => navigate(-1)}
+            >
+              <ArrowLeft className="mr-2 h-5 w-5" />
+              Назад
+            </Button>
+            
+            <Button 
+              variant="outline" 
+              className={`flex items-center space-x-2 ${isLiked ? 'border-brand-blue text-brand-blue' : ''}`}
+              onClick={handleLike}
+            >
+              <ThumbsUp className={`h-5 w-5 ${isLiked ? 'fill-brand-blue' : ''}`} />
+              <span>{likeCount}</span>
+            </Button>
+          </div>
           
           <article className="animate-fadeIn">
             <div className="mb-6">

@@ -92,7 +92,7 @@ const PostCard = ({
         <div className="flex items-center space-x-1">
           <div className="flex items-center h-8 w-8 justify-center">
             <ThumbsUp 
-              className={`h-4 w-4 ${isLiked ? 'fill-brand-blue text-brand-blue' : 'text-muted-foreground'}`}
+              className={`h-4 w-4 ${isLiked ? 'fill-brand-blue text-brand-blue' : 'text-muted-foreground'} cursor-pointer`}
               onClick={handleLike}
             />
           </div>
