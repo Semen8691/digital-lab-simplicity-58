@@ -33,6 +33,9 @@ const PostPage = () => {
       setLikeCount(likeCount + 1);
     }
     setIsLiked(!isLiked);
+    
+    // Smooth scroll to the top after liking
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
   
   if (!post) return null;

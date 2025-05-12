@@ -46,16 +46,16 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-8">
-            <Link to="/" className="group">
+            <div className="group">
               <div className="flex items-center space-x-2">
                 <div className="w-8 h-8 bg-brand-blue rounded-md flex items-center justify-center">
                   <span className="text-white font-bold text-lg">D</span>
                 </div>
-                <span className="text-xl font-medium text-brand-darkblue group-hover:text-brand-blue transition-colors">
+                <span className="text-xl font-medium text-brand-darkblue">
                   Digital Lab News
                 </span>
               </div>
-            </Link>
+            </div>
             
             <nav className="hidden md:flex space-x-8">
               <Link to="/" className="text-brand-darkblue hover:text-brand-blue transition-colors">

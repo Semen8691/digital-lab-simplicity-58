@@ -86,23 +86,16 @@ const PostCard = ({
         </div>
         
         <div className="flex items-center space-x-1">
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            className="h-8 w-8" 
-            onClick={handleLike}
-          >
+          <div className="flex items-center h-8 w-8 justify-center">
             <ThumbsUp 
               className={`h-4 w-4 ${isLiked ? 'fill-brand-blue text-brand-blue' : 'text-muted-foreground'}`} 
             />
-          </Button>
+          </div>
           <span className="text-xs text-muted-foreground pr-1">{likeCount}</span>
           
-          <Link to={`/post/${id}#comments`}>
-            <Button variant="ghost" size="icon" className="h-8 w-8">
-              <MessageSquare className="h-4 w-4 text-muted-foreground" />
-            </Button>
-          </Link>
+          <div className="flex items-center h-8 w-8 justify-center">
+            <MessageSquare className="h-4 w-4 text-muted-foreground" />
+          </div>
           <span className="text-xs text-muted-foreground pr-1">{comments}</span>
         </div>
       </CardFooter>
