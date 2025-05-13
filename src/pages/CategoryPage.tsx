@@ -12,19 +12,6 @@ interface CategoryPageProps {
 const CategoryPage = ({ category }: CategoryPageProps) => {
   const filteredPosts = posts.filter(post => post.category === category);
   
-  // Duplicate the posts to show more cards
-  const displayPosts = [...filteredPosts];
-  if (filteredPosts.length > 0) {
-    // Create duplicate posts with unique IDs
-    filteredPosts.forEach((post, index) => {
-      const newId = `${post.id}-copy-${index}`;
-      displayPosts.push({
-        ...post,
-        id: newId,
-      });
-    });
-  }
-  
   // Scroll to top when changing category
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -39,9 +26,9 @@ const CategoryPage = ({ category }: CategoryPageProps) => {
           <section className="mb-20">
             <h1 className="text-3xl md:text-4xl font-bold mb-8">{category}</h1>
             
-            {displayPosts.length > 0 ? (
+            {filteredPosts.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {displayPosts.map((post) => (
+                {filteredPosts.map((post) => (
                   <PostCard key={post.id} {...post} />
                 ))}
               </div>
