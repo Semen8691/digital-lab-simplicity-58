@@ -12,15 +12,14 @@ interface CategoryPageProps {
 const CategoryPage = ({ category }: CategoryPageProps) => {
   const filteredPosts = posts.filter(post => post.category === category);
   
-  // Duplicate the posts to show more cards
+  // Duplicate the posts to show more cards with proper content
   const displayPosts = [...filteredPosts];
   if (filteredPosts.length > 0) {
-    // Create duplicate posts with unique IDs
-    filteredPosts.forEach((post, index) => {
-      const newId = `${post.id}-copy-${index}`;
+    // Create duplicate posts with unique IDs but all the same data
+    filteredPosts.forEach(post => {
       displayPosts.push({
         ...post,
-        id: newId,
+        id: `${post.id}-copy`,
       });
     });
   }
