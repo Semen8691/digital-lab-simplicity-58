@@ -5,11 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 import { posts } from "@/data/posts";
+import { useToast } from "@/hooks/use-toast";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
+  const { toast } = useToast();
   
   // Add scroll event listener to change header styling
   useEffect(() => {
@@ -35,7 +37,12 @@ const Header = () => {
       navigate(`/post/${foundPost.id}`);
       setSearchQuery("");
     } else {
-      alert("Статья не найдена");
+      // Show toast notification instead of alert
+      toast({
+        title: "Ошибка поиска",
+        description: "Введите корректные данные",
+        variant: "destructive",
+      });
     }
   };
 

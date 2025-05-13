@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -14,6 +13,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import { useToast } from "@/hooks/use-toast";
 
 export interface Comment {
   id: string;
@@ -39,6 +39,9 @@ const CommentItem = ({ comment }: { comment: Comment }) => {
   const [replyText, setReplyText] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [replies, setReplies] = useState(comment.replies || []);
+  const [alertOpen, setAlertOpen] = useState(false);
+  const [missingFields, setMissingFields] = useState<string[]>([]);
+  const { toast } = useToast();
 
   const handleLike = () => {
     if (isLiked) {
@@ -57,7 +60,21 @@ const CommentItem = ({ comment }: { comment: Comment }) => {
   };
 
   const handleSubmitReply = () => {
-    if (!replyText.trim() || !displayName.trim()) return;
+    const missing: string[] = [];
+    
+    if (!displayName.trim()) {
+      missing.push("имя");
+    }
+    
+    if (!replyText.trim()) {
+      missing.push("комментарий");
+    }
+    
+    if (missing.length > 0) {
+      setMissingFields(missing);
+      setAlertOpen(true);
+      return;
+    }
     
     const newReply = {
       id: `reply-${Date.now()}`,
@@ -142,7 +159,6 @@ const CommentItem = ({ comment }: { comment: Comment }) => {
                   size="sm" 
                   className="bg-brand-blue hover:bg-brand-darkblue"
                   onClick={handleSubmitReply}
-                  disabled={!replyText.trim() || !displayName.trim()}
                 >
                   Ответить
                 </Button>
@@ -159,6 +175,20 @@ const CommentItem = ({ comment }: { comment: Comment }) => {
           )}
         </div>
       </div>
+
+      <AlertDialog open={alertOpen} onOpenChange={setAlertOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Пожалуйста, заполните все поля</AlertDialogTitle>
+            <AlertDialogDescription>
+              Для отправки ответа необходимо заполнить следующие поля: {missingFields.join(", ")}.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogAction>Понятно</AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 };
