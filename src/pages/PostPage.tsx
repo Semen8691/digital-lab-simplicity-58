@@ -47,7 +47,7 @@ const PostPage = () => {
       
       <main className={`flex-grow ${isMobile ? 'pt-16' : 'pt-24'}`}>
         <div className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 ${isMobile ? 'pb-4' : ''}`}>
-          <div className={`flex justify-between items-center mb-8 ${isMobile ? 'flex-col space-y-4' : ''}`}>
+          <div className={`flex items-start gap-4 mb-8 ${isMobile ? 'flex-col' : ''}`}>
             <Button
               variant="secondary"
               size={isMobile ? "sm" : "default"}
