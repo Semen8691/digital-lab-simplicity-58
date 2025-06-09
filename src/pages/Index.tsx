@@ -35,47 +35,49 @@ const Index = () => {
       
       <main className={`flex-grow ${isMobile ? 'pt-16' : 'pt-24'}`}>
         <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${isMobile ? 'pb-4' : ''}`}>
-          {/* Hero section with featured post */}
-          <section className="mb-16 animate-fadeIn">
-            <div className="relative overflow-hidden rounded-xl shadow-md">
-              <img 
-                src={featuredPost.image}
-                alt={featuredPost.title}
-                className={`w-full object-cover ${isMobile ? 'h-[300px]' : 'h-[500px]'}`}
-              />
-              
-              <div className={`absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex flex-col justify-end ${isMobile ? 'p-4' : 'p-6 md:p-10'}`}>
-                <span className="bg-brand-blue/90 text-white text-xs font-medium px-2.5 py-1 rounded-full backdrop-blur-sm inline-block mb-4 w-max">
-                  {featuredPost.category}
-                </span>
+          {/* Hero section with featured post - hidden on mobile */}
+          {!isMobile && (
+            <section className="mb-16 animate-fadeIn">
+              <div className="relative overflow-hidden rounded-xl shadow-md">
+                <img 
+                  src={featuredPost.image}
+                  alt={featuredPost.title}
+                  className="w-full object-cover h-[500px]"
+                />
                 
-                <h1 className={`font-bold text-white mb-3 max-w-3xl ${isMobile ? 'text-xl' : 'text-2xl md:text-4xl'}`}>
-                  {featuredPost.title}
-                </h1>
-                
-                <p className={`text-white/90 mb-4 max-w-2xl ${isMobile ? 'text-sm' : ''}`}>
-                  {featuredPost.excerpt}
-                </p>
-                
-                <div className="flex items-center space-x-4">
-                  <img 
-                    src={featuredPost.author.avatar}
-                    alt={featuredPost.author.name}
-                    className={`rounded-full ${isMobile ? 'w-8 h-8' : 'w-10 h-10'}`}
-                  />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex flex-col justify-end p-6 md:p-10">
+                  <span className="bg-brand-blue/90 text-white text-xs font-medium px-2.5 py-1 rounded-full backdrop-blur-sm inline-block mb-4 w-max">
+                    {featuredPost.category}
+                  </span>
                   
-                  <div>
-                    <p className={`text-white font-medium ${isMobile ? 'text-xs' : 'text-sm'}`}>
-                      {featuredPost.author.name}
-                    </p>
-                    <p className={`text-white/70 ${isMobile ? 'text-xs' : 'text-xs'}`}>
-                      {featuredPost.date} · {featuredPost.readTime}
-                    </p>
+                  <h1 className="text-2xl md:text-4xl font-bold text-white mb-3 max-w-3xl">
+                    {featuredPost.title}
+                  </h1>
+                  
+                  <p className="text-white/90 mb-4 max-w-2xl">
+                    {featuredPost.excerpt}
+                  </p>
+                  
+                  <div className="flex items-center space-x-4">
+                    <img 
+                      src={featuredPost.author.avatar}
+                      alt={featuredPost.author.name}
+                      className="w-10 h-10 rounded-full"
+                    />
+                    
+                    <div>
+                      <p className="text-sm text-white font-medium">
+                        {featuredPost.author.name}
+                      </p>
+                      <p className="text-xs text-white/70">
+                        {featuredPost.date} · {featuredPost.readTime}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
+          )}
           
           {/* Latest articles */}
           <section className="mb-20">
